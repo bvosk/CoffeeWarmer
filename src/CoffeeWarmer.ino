@@ -3,6 +3,8 @@
 SerialLogHandler logHandler;
 DS18 temperatureSensor(D0);
 
+const int LOOP_DELAY = 1000;
+
 void setup() {
 }
 
@@ -11,5 +13,6 @@ void loop() {
   if (temperatureSensor.read()) {
     Particle.publish("temperature", String(temperatureSensor.fahrenheit()), PRIVATE);
   }
-  delay(1000);
+  
+  delay(LOOP_DELAY);
 }
