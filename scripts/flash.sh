@@ -1,3 +1,3 @@
 #!/bin/bash
 
-particle flash squeamish-puppy src/CoffeeWarmer.ino
+particle flash squeamish-puppy .
