@@ -1,12 +1,11 @@
 #include "DS18.h"
 
 SerialLogHandler logHandler;
+
 DS18 temperatureSensor(D0);
 double temperature = 0;
 
 int ledRelay = D7;
-
-const int LOOP_DELAY = 2000;
 
 void setup() {
   Particle.variable("temperature", temperature);
@@ -14,9 +13,7 @@ void setup() {
 }
 
 void loop() {
-  if (temperatureSensor.read()) {
-    temperature = temperatureSensor.fahrenheit();
-  }
+  readTemperature();
 
   const PinState relayState = (PinState) digitalRead(ledRelay);
   if (relayState == LOW) {
@@ -27,5 +24,11 @@ void loop() {
     digitalWrite(ledRelay, LOW);
   }
   
-  delay(LOOP_DELAY);
+  delay(2000);
+}
+
+void readTemperature() {
+  if (temperatureSensor.read()) {
+    temperature = temperatureSensor.fahrenheit();
+  }
 }
