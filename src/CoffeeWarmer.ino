@@ -14,15 +14,7 @@ void setup() {
 
 void loop() {
   readTemperature();
-
-  const PinState relayState = (PinState) digitalRead(ledRelay);
-  if (relayState == LOW) {
-    Log.info("Turning relay on.");
-    digitalWrite(ledRelay, HIGH);
-  } else {
-    Log.info("Turning relay off.");
-    digitalWrite(ledRelay, LOW);
-  }
+  toggleRelay();
   
   delay(2000);
 }
@@ -30,5 +22,16 @@ void loop() {
 void readTemperature() {
   if (temperatureSensor.read()) {
     temperature = temperatureSensor.fahrenheit();
+  }
+}
+
+void toggleRelay() {
+  const PinState relayState = (PinState) digitalRead(ledRelay);
+  if (relayState == LOW) {
+    Log.info("Turning relay on.");
+    digitalWrite(ledRelay, HIGH);
+  } else {
+    Log.info("Turning relay off.");
+    digitalWrite(ledRelay, LOW);
   }
 }
