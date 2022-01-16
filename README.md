@@ -130,10 +130,10 @@ This project uses a [PID community library](https://docs.particle.io/cards/libra
 Even with a good PID controller, we are somewhat hamstrung in our control of the temperature for two reasons:
 
 - We are driving a digital output with no granularity. The relay is either open or closed. This is in contrast to
-other types of outputs such as a motor to which we can apply differing degrees of thrust.
-- We can only control the output in one direction. We have no mechanism by which to cool the liquid in the mug. We
-can only apply heat to increase the temperature. This project assumes we are heating liquids to temperatures above
-room temperature so we can rely on natural heat dissapation to cool the liquid. However the liquid cools down slowly.
+other types of outputs such as a car motor to which we can apply differing degrees of thrust.
+- We can only control the output in one direction. We can only apply heat to increase the temperature, but we have 
+no way to actively cool the liquid in the mug. In a car, for example, we might have a brake available to us to slow
+the speed of the care when it exceeds the desired setpoint. This project assumes we are heating liquids to temperatures above room temperature so we can rely on natural heat dissapation to cool the liquid. However the liquid cools down slowly.
 
 In practice, this project is able to control the temperature to within 2 degrees of the target temperature without
 playing with the PID gains too much. This could probably be improved, but we'll take it!
