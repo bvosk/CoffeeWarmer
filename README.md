@@ -121,11 +121,13 @@ temperature reading in fahrenheit units.
 #### Controlling the relay
 
 We utilize a [PID controller](https://en.wikipedia.org/wiki/PID_controller) to drive the relay based on the error
-between the current and desired temperature. A PID controller is _probably_ overkill for project like this, but it's
+between the current and desired temperature. A PID controller is probably overkill for project like this, but it's
 used here for the purpose of demonstration and to achieve a higher degree of control than less sophisticated methods
 like a simple if statement.
 
-We are somewhat hamstrung in our control of the temperature for two reasons:
+This project uses a [PID community library](https://docs.particle.io/cards/libraries/p/pid/) instead of implementing our own. [This awesome blog post](http://brettbeauregard.com/blog/2011/04/improving-the-beginners-pid-introduction/) explains some of the advanced features of this PID controller.
+
+Even with a good PID controller, we are somewhat hamstrung in our control of the temperature for two reasons:
 
 - We are driving a digital output with no granularity. The relay is either open or closed. This is in contrast to
 other types of outputs such as a motor to which we can apply differing degrees of thrust.
