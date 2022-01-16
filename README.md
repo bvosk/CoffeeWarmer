@@ -11,7 +11,7 @@ liquid in the mug.
 ## ⚠️ Safety Warning ⚠️
 
 This project requires a cartridge heater that that draws currents of > 8A. Using this component
-without the appropriate safety precations can result in serious injury or death. Please do not
+without the appropriate safety precautions can result in serious injury or death. Please do not
 try this without understanding the dangers of working with high power components.
 
 This project was done as a hobby. No guarantees are made about the quality of the instructions,
