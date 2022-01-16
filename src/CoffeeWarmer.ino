@@ -3,73 +3,59 @@
 
 SerialLogHandler logHandler;
 
+// Temperature sensor
 DS18 temperatureSensor(D0);
-double temperature = 0;
+double temperature;
 
-int heatCartridgeRelay = D7;
+// Heat cartridge relay
+int heatCartridgeRelayPin = D7;
 
-double desiredTemperature;
+// PID controller
+double desiredTemperature = 92;
 const int kp = 1, ki = 1, kd = 1;
-int WindowSize = 5000;
-double pidOutput = WindowSize / 2;
-PID temperaturePidController(&temperature, &pidOutput, &desiredTemperature,kp,ki,kd, PID::DIRECT);
-unsigned long windowStartTime;
+double pidOutput;
+PID temperaturePidController(
+  &temperature, &pidOutput, &desiredTemperature,
+  kp,ki,kd,
+  PID::DIRECT
+);
 
 void setup() {
-  Particle.variable("temperature", temperature);
-  pinMode(heatCartridgeRelay, OUTPUT); 
+  pinMode(heatCartridgeRelayPin, OUTPUT);
 
-  windowStartTime = millis();
-  //initialize the variables we're linked to
-  desiredTemperature = 98;
-
-  //tell the PID to range between 0 and the full window size
-  temperaturePidController.SetOutputLimits(0, 1);
-
-  //turn the PID on
-  temperaturePidController.SetMode(PID::AUTOMATIC);
+  setupPidController();
 }
 
 void loop() {
-  readTemperature();
-  controlRelayDumb();
-  printDetails();
-
-  delay(1000);
-}
-
-void readTemperature() {
-  if (temperatureSensor.read()) {
-    temperature = temperatureSensor.fahrenheit();
+  if (hasNewTemperature()) {
+    readTemperature();
+    controlRelay();
+    logDetails();
   }
 }
 
-void controlRelayDumb() {
-  temperaturePidController.Compute();
-  digitalWrite(heatCartridgeRelay, (PinState) pidOutput);
+bool hasNewTemperature() {
+  return temperatureSensor.read();
 }
 
-void printDetails() {
+void readTemperature() {
+ temperature = temperatureSensor.fahrenheit();
+}
+
+void controlRelay() {
+  temperaturePidController.Compute();
+  digitalWrite(heatCartridgeRelayPin, (PinState) pidOutput);
+}
+
+void logDetails() {
   Log.info(String::format("Current Temperature: %f", temperature));
   Log.info(String::format("PID Output: %f", pidOutput));
   Log.info(String::format("Relay Output: %f", pidOutput));
 }
 
-void controlRelay() {
-  temperaturePidController.Compute();
-  /************************************************
-   * turn the output pin on/off based on pid output
-   ************************************************/
-  if ((millis() - windowStartTime) > WindowSize) {
-    //time to shift the Relay Window
-    windowStartTime += WindowSize;
-    Log.info(String::format("New window started at: %ims", windowStartTime));
-    Log.info(String::format("Relay duty cycle: %f%", (pidOutput / WindowSize) * 100));
-  }
-  if (pidOutput < (millis() - windowStartTime)) {
-    digitalWrite(heatCartridgeRelay, LOW);
-  }
-  else {
-    digitalWrite(heatCartridgeRelay, HIGH);
-  }
+void setupPidController() {
+  // We are limited to outputs of 0 or 1 because we are driving a relay
+  temperaturePidController.SetOutputLimits(0, 1);
+
+  temperaturePidController.SetMode(PID::AUTOMATIC);
 }
