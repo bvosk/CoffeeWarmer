@@ -1,3 +1,5 @@
 #!/bin/bash
 
-screen /dev/tty.usbmodem1101
+source ./scripts/.env
+
+screen $PORT

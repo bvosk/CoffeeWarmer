@@ -1,3 +1,5 @@
 #!/bin/bash
 
-particle flash squeamish-puppy .
+source ./scripts/.env
+
+particle flash $DEVICE_NAME .
