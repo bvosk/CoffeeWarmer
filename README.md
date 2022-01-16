@@ -51,6 +51,23 @@ Note that the connection from `D7` to the input connection on the relay is not s
 imported part file for the relay. `D7` was chosen so that the on-board LED could be used to indicate the desire state
 of the relay.
 
+The cartridge heater is depicted as a 1.5Ω resistor calculated in the following way using the component's power and
+voltage characteristics:
+
+```
+P = VI # Ohm's Law
+R = V / I
+I = P / V
+I = 100W / 12V
+I ~ 8.3A
+```
+
+```
+R = V / I # Ohm's Law
+R = 12V / 8.3A
+R ~ 1.5 Ω
+```
+
 ![Schematic Diagram](./docs/schematic/schematic.png)
 
 ### Breadboard
