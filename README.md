@@ -105,7 +105,7 @@ this communication. All we have to do is call two library functions. We call `re
 available - the sensor only reads new values once per second by default. Then we call `fahrenheit` to get the latest
 temperature reading in fahrenheit units.
 
-### Controlling the relay
+#### Controlling the relay
 
 We utilize a [PID controller](https://en.wikipedia.org/wiki/PID_controller) to drive the relay based on the error
 between the current and desired temperature. A PID controller is _probably_ overkill for project like this, but it's
@@ -113,8 +113,12 @@ used here for the purpose of demonstration and to achieve a higher degree of con
 like a simple if statement.
 
 We are somewhat hamstrung in our control of the temperature for two reasons:
+
 - We are driving a digital output with no granularity. The relay is either open or closed. This is in contrast to
 other types of outputs such as a motor to which we can apply differing degrees of thrust.
 - We can only control the output in one direction. We have no mechanism by which to cool the liquid in the mug. We
 can only apply heat to increase the temperature. This project assumes we are heating liquids to temperatures above
 room temperature so we can rely on natural heat dissapation to cool the liquid. However the liquid cools down slowly.
+
+In practice, this project is able to control the temperature to within 2 degrees of the target temperature without
+playing with the PID gains too much. This could probably be improved, but we'll take it!
