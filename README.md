@@ -14,7 +14,7 @@ This project requires a cartridge heater that that draws currents of > 8A. Using
 without the appropriate safety precations can result in serious injury or death. Please do not
 try this without understanding the dangers of working with high power components.
 
-This project was done as a hobby and no guarantees are made about the quality of the instructions,
+This project was done as a hobby. No guarantees are made about the quality of the instructions,
 design, or software provided. Please be careful.
 
 ## Hardware
