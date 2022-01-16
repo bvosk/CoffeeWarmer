@@ -25,7 +25,7 @@ design, or software provided. Please be careful.
 | --------------------------------- | --------------- | ------------------------------------------------- | ---------------------------------------------------------- |
 | Particle Photon                   | U1              | [Particle Docs](https://docs.particle.io/photon/) | https://store.particle.io/collections/wifi/products/photon |
 | DS18B20 Temperature Sensor        | DS1             | [Datasheet](./docs/datasheets/DS18B20.pdf)        | https://www.adafruit.com/product/381                       |
-| SRD-5VDC-SL-C                     | K1              | [Datasheet](./docs/datasheets/SRD-5VDC-SL-C.pdf)  | https://www.amazon.com/dp/B00LW15A4W                       |
+| SRD-5VDC-SL-C Relay               | K1              | [Datasheet](./docs/datasheets/SRD-5VDC-SL-C.pdf)  | https://www.amazon.com/dp/B00LW15A4W                       |
 | Dernord 12V 100W Cartridge Heater | R1              | Not Available                                     | https://www.amazon.com/dp/B0741664G5                       |
 | Bench Power Supply                |                 | Not Available                                     | https://www.amazon.com/dp/B08DJ1FDXV                       |
 
