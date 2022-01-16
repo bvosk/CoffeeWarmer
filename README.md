@@ -17,9 +17,22 @@ try this without understanding the dangers of working with high power components
 This project was done as a hobby. No guarantees are made about the quality of the instructions,
 design, or software provided. Please be careful.
 
+## Table of Contents
+
+  * [Hardware](#hardware)
+    + [Bill of Materials](#bill-of-materials)
+    + [Schematic](#schematic)
+    + [Breadboard](#breadboard)
+  * [Software](#software)
+    + [Getting started](#getting-started)
+    + [Running the project](#running-the-project)
+    + [Operating description](#operating-description)
+      - [Reading the temperature](#reading-the-temperature)
+      - [Controlling the relay](#controlling-the-relay)
+
 ## Hardware
 
-### Bill of Materials (BOM)
+### Bill of Materials
 
 | Component                         | Schematic Label | Documentation                                     | Purchase Link                                              |
 | --------------------------------- | --------------- | ------------------------------------------------- | ---------------------------------------------------------- |
@@ -89,7 +102,7 @@ Finally to listen to messages logged to the serial port, you can use this script
 ./scripts/listen.sh
 ```
 
-### Operation
+### Operating description
 
 The provided software is very simple. After some initialization, itt repeats this
 series of steps in a loop:
