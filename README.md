@@ -34,7 +34,8 @@ design, or software provided. Please be careful.
 This schematic diagram was made with [Fritzing](https://fritzing.org/).
 
 Note that the connection from `D7` to the input connection on the relay is not shown. This is due to limitations on the
-imported part file for the relay.
+imported part file for the relay. `D7` was chosen so that the on-board LED could be used to indicate the desire state
+of the relay.
 
 ![Schematic Diagram](./docs/schematic/schematic.png)
 
