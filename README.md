@@ -42,6 +42,7 @@ design, or software provided. Please be careful.
 | SRD-5VDC-SL-C Relay               | K1              | [Datasheet](./docs/datasheets/SRD-5VDC-SL-C.pdf)  | https://www.amazon.com/dp/B00LW15A4W                       |
 | Dernord 12V 100W Cartridge Heater | R1              | Not Available                                     | https://www.amazon.com/dp/B0741664G5                       |
 | Bench Power Supply                |                 | Not Available                                     | https://www.amazon.com/dp/B08DJ1FDXV                       |
+| 4.7KΩ Pullup Resistor             | R2              | Not Available                                     | Widely Available                                           |
 
 ### Schematic
 
