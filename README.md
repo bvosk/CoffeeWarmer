@@ -4,14 +4,14 @@
 
 A DIY version of the [Ember Mug](https://ember.com/) for nerds. We use a cartridge heater placed
 inside the mug to heat it along with a temperature sensor that monitors the temperature of the
-liquid in the mug. The cartridge heater is connected to bench power supply and switched through
+liquid in the mug. The cartridge heater is connected to a bench power supply and switched through
 a relay.
 
 ![Demo](docs/project.png)
 
 ## ⚠️ Safety Warning ⚠️
 
-This project requires a cartridge heater that that draws currents of > 8A. Using this component
+This project requires a cartridge heater that may draw 8A of current. Using this component
 without the appropriate safety precautions can result in serious injury or death. Please do not
 try this without understanding the dangers of working with high power components.
 
